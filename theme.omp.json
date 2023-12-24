@@ -19,6 +19,9 @@
       }
     }
   },
+  "var": {
+    "folder_seperator": " <#000000>\ue0bd </>"
+  },
   "blocks": [
     {
       "type": "prompt",
@@ -40,14 +43,16 @@
           "foreground": "#ffffff",
           "background": "p:main",
           "template": " {{if .Writable}}{{else}} {{end}}{{ .Path }} ",
+
           "properties": {
+            "mapped_locations": "true",
+            "mapped_locations": {
+              "/mnt/c": "\ue62a"
+            },
             "folder_icon": "\uf07b",
             "folder_separator_icon": " <#000000>\ue0bd </>",
             "home_icon": "\ueb06",
             "style": "powerlevel"
-          },
-          "mapped_locations": {
-            "/mnt/c/Users/*": "\ueb06"
           }
         },
         {
@@ -69,12 +74,6 @@
             "fetch_status": true,
             "fetch_upstream_icon": true
           }
-        },
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "#FFD54F",
-          "template": " "
         }
       ],
       "newline": true
