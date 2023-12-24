@@ -45,6 +45,9 @@
             "folder_separator_icon": " <#000000>\ue0bd </>",
             "home_icon": "\ueb06",
             "style": "powerlevel"
+          },
+          "mapped_locations": {
+            "/mnt/c/Users/*": "\ueb06",
           }
         },
         {
