@@ -34,25 +34,17 @@
         },
         
         {
-          "type": "root",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
-          "foreground": "#ffffff",
-          "background": "#e06c75",
-          "template": " \ue799\u2800"
-        },
-        {
           "type": "path",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "p:main",
-          "template": " {{ .Path }} ",
+          "template": " {{if .Writable}}{{else}} {{end}}{{ .Path }} ",
           "properties": {
             "folder_icon": "\uf07b",
             "folder_separator_icon": " <#000000>\ue0bd </>",
             "home_icon": "\ueb06",
-            "style": "agnoster_short"
+            "style": "powerlevel"
           }
         },
         {
@@ -90,12 +82,21 @@
         {
           "type": "text",
           "alias": "distrobox",
-          "style": "diamond",
+,         "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "foreground": "#ffffff",
           "background": "#5e4d44",
           "template": "{{if .Env.CONTAINER_ID}}\udb80\udda7 {{.Env.CONTAINER_ID}}{{end}}"
+        },
+        {
+          "type": "root",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "#ffffff",
+          "background": "#e06c75",
+          "template": "\ue799\u2800"
         },
         {
           "type": "executiontime",
