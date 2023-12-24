@@ -42,7 +42,7 @@
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
           "background": "p:main",
-          "template": " {{if .Writable}}{{else}} {{end}}{{$path := .Path}}{{$path = replaceP \"/mnt/c/Users/(.*?)/\" $path \"\ueb06\"}}{{$path = replaceP \"Documents\" $path \"\udb80\ude19\"}}{{$path = replaceP \"Downloads\" $path \"\udb80\uddda\"}}{{$path = replaceP \"Music\" $path \"\uf001\"}}{{$path = replaceP \"Pictures|Photos\" $path \"\uf03e\"}}{{$path = replaceP \"Videos\" $path \"\udb81\udd67\"}}{{$path = replaceP \"Nextcloud\" $path \"\udb80\udd5f\"}}{{$path = replaceP \"/\" $path \" <#000000>\ue0bd </>\"}}{{$path}} ",
+          "template": " {{if .Writable}}{{else}} {{end}}{{$path := .Path}}{{$path = replaceP \"/mnt/c/Users/(.*?)/\" $path \"\ueb06\"}}{{$path = replaceP \"Documents\" $path \"\udb80\ude19\"}}{{$path = replaceP \"Downloads\" $path \"\udb80\uddda\"}}{{$path = replaceP \"Music\" $path \"\uf001\"}}{{$path = replaceP \"Pictures|Photos\" $path \"\uf03e\"}}{{$path = replaceP \"Videos\" $path \"\udb81\udd67\"}}{{$path = replaceP \"Nextcloud\" $path \"\udb80\udd5f\"}}{{$path = replaceP \"/|\\\" $path \" <#000000>\ue0bd </>\"}}{{$path}} ",
           "properties": {
             "mapped_locations": "true",
             "mapped_locations": {
