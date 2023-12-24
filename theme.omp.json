@@ -82,7 +82,7 @@
         {
           "type": "text",
           "alias": "distrobox",
-,         "style": "diamond",
+          "style": "diamond",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "foreground": "#ffffff",
