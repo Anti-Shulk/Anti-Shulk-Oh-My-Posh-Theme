@@ -2,8 +2,22 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
   "final_space": true,
-  "var": {
-    "windows_color": "#ff00ff"
+  "palettes": {
+    "template": "{{.OS}}",
+    "list": {
+      "fedora": {
+        "main": "#51a2da"
+      },
+      "ubuntu": {
+        "main": "#e95420"
+      },
+      "windows": {
+        "main": "#0077c2"
+      },
+      "arch": {
+        "main": "#1793d1"
+      }
+    }
   },
   "blocks": [
     {
@@ -13,32 +27,10 @@
         {
           "type": "os",
           "style": "diamond",
-          "foreground": "#555555",
-          "foreground_templates": [
-            "{{ if matchP \"windows\" .OS}}#0077c2{{ end }}",
-            "{{ if matchP \"ubuntu\" .OS}}#E95420{{ end }}"
-          ],
+          "foreground": "p:main",
           "background": "#fbfbfb",
           "leading_diamond": "\ue0b6",
-          "template": "{{.Icon}} ",
-          "properties": {
-            "alpine": "\uf300",
-            "arch": "\uf303",
-            "centos": "\uf304",
-            "debian": "\uf306",
-            "elementary": "\uf309",
-            "fedora": "\uf30a",
-            "gentoo": "\uf30d",
-            "linux": "\ue712",
-            "macos": "\ue711",
-            "manjaro": "\uf312",
-            "mint": "\uf30f",
-            "opensuse": "\uf314",
-            "raspbian": "\uf315",
-            "ubuntu": "\uf31c",
-            "windows": "\ue62a",
-            "wsl": "\ue712"
-          }
+          "template": "{{.Icon}} "
         },
         
         {
@@ -54,11 +46,7 @@
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "foreground": "#ffffff",
-          "background": "#555555",
-          "background_templates": [
-            "{{ if matchP \"windows\" .OS}}#0077c2{{ end }}",
-            "{{ if matchP \"ubuntu\" .OS}}#E95420{{ end }}"
-          ],
+          "background": "p:main",
           "template": " {{ .Path }} ",
           "properties": {
             "folder_icon": "\uf07b",
@@ -79,7 +67,7 @@
             "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
             "{{ if gt .Behind 0 }}#B388FF{{ end }}"
           ],
-          "template": " {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "template": "{{.Segments.name}} {{ .HEAD }}{{ if .Staging.Changed }}<#FF6F00> {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "properties": {
             "branch_icon": "\ue725 ",
             "fetch_stash_count": true,
@@ -100,19 +88,23 @@
       "type": "rprompt",
       "segments": [
         {
-          "type": "status",
-          "style": "plain",
+          "type": "text",
+          "alias": "distrobox",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
           "foreground": "#ffffff",
-          "template": " {{ if gt .Code 0 }}\uf52f{{ else }}\uf4a7{{ end }} ",
-          "properties": {
-            "always_enabled": true
-          }
+          "background": "#5e4d44",
+          "template": "{{if .Env.CONTAINER_ID}}\udb80\udda7 {{.Env.CONTAINER_ID}}{{end}}"
         },
         {
           "type": "executiontime",
-          "style": "plain",
+          "style": "diamond",
           "foreground": "#ffffff",
-          "template": "{{ .FormattedMs }} ",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "background": "p:main",
+          "template": "{{ .FormattedMs }}",
           "properties": {
             "always_enabled": true
           }
@@ -122,11 +114,7 @@
   ],
   "transient_prompt": {
     "background": "transparent",
-    "foreground": "#555555",
-    "foreground_templates": [
-      "{{ if matchP \"windows\" .OS}}#0077c2{{ end }}",
-      "{{ if matchP \"ubuntu\" .OS}}#E95420{{ end }}"
-    ],
+    "foreground": "p:main",
     "template": "❯ "
   }
 }
